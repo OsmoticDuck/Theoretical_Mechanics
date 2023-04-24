@@ -273,7 +273,7 @@ z
 \end{bmatrix}
 &=
 \begin{bmatrix}
-\cos\varphi & \sin(\varphi) & 0 \\
+\cos(\varphi) & \sin(\varphi) & 0 \\
 -\sin(\varphi) & \cos(\varphi) & 0 \\
 0 & 0 & 1
 \end{bmatrix}
@@ -291,14 +291,14 @@ z
 \end{bmatrix}
 &=
 \begin{bmatrix}
-\cos\varphi & -\sin(\varphi) & 0 \\
+\cos(\varphi) & -\sin(\varphi) & 0 \\
 \sin(\varphi) & \cos(\varphi) & 0 \\
 0 & 0 & 1
 \end{bmatrix}
 \begin{bmatrix}
 \hat{\rho} \\
 \hat{\varphi} \\
-z
+\hat{z}
 \end{bmatrix}
 \end{align}
 
@@ -309,18 +309,18 @@ z
 \begin{enumerate}
 \item[(b)]
 
-The position vector $\vec{r}$ in combination of basis vectors from cartesian coordinates and the factors from curvilinear coordinates is given by
+The position vector $\vec{r}$ in combination of basis vectors from cartesian coordinates and factors of curvilinear coordinates is given by
 \begin{align}
-(sperical)\vec{r}&=r\sin(\vartheta)\cos(\varphi)\hat{x}+r\sin(\vartheta)\sin(\varphi)\hat{y}+r\cos(\vartheta)\hat{z}\\
-(cylindrical)\vec{r}&=\rho\cos(\varphi)\hat{x}+\rho\sin(\varphi)\hat{y}+z\hat{z}
+(sperical)\ \vec{r}&=r\sin(\vartheta)\cos(\varphi)\hat{x}+r\sin(\vartheta)\sin(\varphi)\hat{y}+r\cos(\vartheta)\hat{z}\\
+(cylindrical)\ \vec{r}&=\rho\cos(\varphi)\hat{x}+\rho\sin(\varphi)\hat{y}+z\hat{z}
 \end{align}
 
-our goal is to obtain an expression of position vector, such that it is explicitly expressed by curvilinear coordinates, like the following equation:
+our goal is to obtain an expression of position vector, such that it is explicitly expressed by curvilinear coordinates, like in the following equation:
 \begin{align*}
 \vec{r}=\vec{r}(q_1,q_2,q_3)=\sum_{k=1}^3c_k(q_1,q_2,q_3)\hat{q}_k(q_1,q_2,q_3)
 \end{align*}
 
-Now we replace the unit vectors of cartesian coordinates with which from curvilinear coordinates  using transformation matrices.
+Now we replace unit vectors of cartesian coordinates with which from curvilinear coordinates using transformation matrices.
 
 For spherical coordinates, we use equation (4):
 
@@ -375,13 +375,248 @@ r\sin(\vartheta)\cos(\varphi) & & \\
 =&
 \begin{bmatrix}
 r\sin^2(\vartheta)\cos^2(\varphi) & r\sin(\vartheta)\cos(\vartheta)\cos^2(\varphi) & -r\sin(\vartheta)\cos(\varphi)\sin(\varphi) \\
-r\sin^2(\vartheta)\sin^2(\varphi) & r\sin(\vartheta)\cos(\vartheta)\sin^2(\varphi) & r\sin(\vartheta)\cos(\vartheta)\sin(\varphi) \\
+r\sin^2(\vartheta)\sin^2(\varphi) & r\sin(\vartheta)\cos(\vartheta)\sin^2(\varphi) & r\sin(\vartheta)\sin(\varphi)\cos(\varphi) \\
 r\cos^2(\vartheta) & -r\cos(\vartheta)\sin(\vartheta) & 0
 \end{bmatrix}
 \begin{bmatrix}
 \hat{r} \\
 \hat{\vartheta} \\
 \hat{\varphi}
+\end{bmatrix}\\
+=&
+\begin{bmatrix}
+r\sin^2(\vartheta)\cos^2(\varphi)\hat{r}+r\sin(\vartheta)\cos(\vartheta)\cos^2(\varphi)\hat{\vartheta}-r\sin(\vartheta)\cos(\varphi)\sin(\varphi)\hat{\varphi} \\
+r\sin^2(\vartheta)\sin^2(\varphi)\hat{r}+r\sin(\vartheta)\cos(\vartheta)\sin^2(\varphi)\hat{\vartheta}+r\sin(\vartheta)\sin(\varphi)\cos(\varphi)\hat{\varphi} \\
+r\cos^2(\vartheta)\hat{r}-r\cos(\vartheta)\sin(\vartheta)\hat{\vartheta}
+\end{bmatrix}\\
+\begin{split}
+=&
+(r\sin^2(\vartheta)\cos^2(\varphi)+r\sin^2(\vartheta)\sin^2(\varphi)+r\cos^2(\vartheta))\hat{r}\\
+&+(r\sin(\vartheta)\cos(\vartheta)\cos^2(\varphi)+r\sin(\vartheta)\cos(\vartheta)\sin^2(\varphi)-r\cos(\vartheta)\sin(\vartheta))\hat{\vartheta}\\
+&+(-r\sin(\vartheta)\cos(\varphi)\sin(\varphi)+r\sin(\vartheta)\sin(\varphi))\cos(\varphi)\hat{\varphi}
+\end{split}\\
+=&
+r\hat{r}
+\end{align*}
+
+\newpage
+
+And for cylindrical coordinates:
+\begin{align*}
+\begin{bmatrix}
+\rho\cos(\varphi) & & \\
+& \rho\sin(\varphi) & \\
+& & z
+\end{bmatrix}
+\begin{bmatrix}
+\hat{x} \\
+\hat{y} \\
+\hat{z}
+\end{bmatrix}
+=&
+\begin{bmatrix}
+\rho\cos(\varphi) & & \\
+& \rho\sin(\varphi) & \\
+& & z
+\end{bmatrix}
+\begin{bmatrix}
+\cos(\varphi) & -\sin(\varphi) & 0 \\
+\sin(\varphi) & \cos(\varphi) & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+\hat{\rho} \\
+\hat{\varphi} \\
+\hat{z}
+\end{bmatrix}\\
+=&
+\begin{bmatrix}
+\rho\cos^2(\varphi) & -\rho\sin(\varphi)\cos(\varphi) & 0 \\
+\rho\sin^2(\varphi) & \rho\sin(\varphi)\cos(\varphi) & 0 \\
+0 & 0 & z
+\end{bmatrix}
+\begin{bmatrix}
+\hat{\rho} \\
+\hat{\varphi} \\
+\hat{z}
+\end{bmatrix}\\
+=&
+\begin{bmatrix}
+\rho\cos^2(\varphi)\hat{\rho}-\rho\sin(\varphi)\cos(\varphi)\hat{\varphi} \\
+\rho\sin^2(\varphi)\hat{\rho}+\rho\sin(\varphi)\cos(\varphi)\hat{\varphi} \\
+z\hat{z}
+\end{bmatrix}\\
+=&
+(\rho\cos^2(\varphi)+\rho\sin^2(\varphi))\hat{\rho}+(-\rho\sin(\varphi)\cos(\varphi)+\rho\sin(\varphi)\cos(\varphi))\hat{\varphi}+z\hat{z}\\
+=&\rho\hat{\rho}+z\hat{z}
+\end{align*}
+
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}
+\item[(c)]
+
+The (square of) line element is given by
+\begin{align*}
+dl:=|d\vec{r}|^2
+\end{align*}
+
+with $d\vec{r}=\frac{\partial\vec{r}}{\partial q_1}dq_1+\frac{\partial\vec{r}}{\partial q_2}dq_2+\frac{\partial\vec{r}}{\partial q_3}dq_3$
+
+In spherical coordinates, it is
+\begin{align*}
+d\vec{r}
+&=\frac{\partial\vec{r}}{\partial r}dr+\frac{\partial\vec{r}}{\partial \vartheta}d\vartheta+\frac{\partial\vec{r}}{\partial \varphi}d\varphi \\
+&=
+\begin{bmatrix}
+\sin(\vartheta)\cos(\varphi) \\
+\sin(\vartheta)\sin(\varphi) \\
+\cos(\vartheta)
+\end{bmatrix}
+dr
++
+\begin{bmatrix}
+r\cos(\vartheta)\cos(\varphi) \\
+r\cos(\vartheta)\sin(\varphi) \\
+-r\sin(\vartheta)
+\end{bmatrix}
+d\vartheta
++
+\begin{bmatrix}
+-r\sin(\vartheta)\sin(\varphi) \\
+r\sin(\vartheta)\cos(\varphi) \\
+0
+\end{bmatrix}
+d\varphi
+\end{align*}
+
+therefore,
+\begin{align*}
+|d\vec{r}|^2
+&=
+\begin{bmatrix}
+\sin(\vartheta)^2\cos(\varphi)^2 \\
+\sin(\vartheta)^2\sin(\varphi)^2 \\
+\cos(\vartheta)^2
+\end{bmatrix}
+dr^2
++
+\begin{bmatrix}
+r^2\cos(\vartheta)^2\cos(\varphi)^2 \\
+r^2\cos(\vartheta)^2\sin(\varphi)^2 \\
+r^2\sin(\vartheta)^2
+\end{bmatrix}
+d\vartheta^2
++
+\begin{bmatrix}
+r^2\sin(\vartheta)^2\sin(\varphi)^2 \\
+r^2\sin(\vartheta)^2\cos(\varphi)^2 \\
+0
+\end{bmatrix}
+d\varphi^2 \\
+&=
+dr^2+r^2d\vartheta^2+r^2\sin^2(\theta)d\varphi^2
+\end{align*}
+
+In cylindrical coordinates, it is
+\begin{align*}
+d\vec{r}
+&=\frac{\partial\vec{\rho}}{\partial \rho}dr+\frac{\partial\vec{r}}{\partial \varphi}d\varphi+\frac{\partial\vec{r}}{\partial z}dz \\
+&=
+\begin{bmatrix}
+\cos(\varphi) \\
+\sin(\varphi) \\
+0
+\end{bmatrix}
+dr
++
+\begin{bmatrix}
+-\rho\sin(\varphi) \\
+\rho\cos(\varphi) \\
+0
+\end{bmatrix}
+d\vartheta
++
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+d\varphi
+\end{align*}
+
+therefore
+\begin{align*}
+|d\vec{r}|^2
+&=
+\begin{bmatrix}
+\cos^2(\varphi) \\
+\sin^2(\varphi) \\
+0
+\end{bmatrix}
+d\rho^2
++
+\begin{bmatrix}
+\rho^2\sin^2(\varphi) \\
+\rho^2\cos^2(\varphi) \\
+0
+\end{bmatrix}
+d\varphi^2
++
+\begin{bmatrix}
+0 \\
+0 \\
+1
+\end{bmatrix}
+dz^2 \\
+&=d\rho^2+\rho^2d\varphi^2+dz^2
+\end{align*}
+
+\end{enumerate}
+
+\newpage
+
+\begin{enumerate}
+\item[(d)]
+
+The position vector in spherical coordinates is
+\begin{align*}
+\vec{r}=r\hat{r}
+\end{align*}
+
+the speed $\vec{v}(t)$ is the derivative of position vector $\vec{r}$ with respect to time $t$
+\begin{align*}
+\dot{\vec{r}}
+&=\frac{dr}{dt}\hat{r}+r\frac{d\hat{r}}{dt} \\
+&=
+\dot{r}(t)
+\begin{bmatrix}
+\sin(\vartheta(t))\cos(\varphi(t)) \\
+\sin(\vartheta(t))\sin(\varphi(t)) \\
+\cos(\vartheta(t))
+\end{bmatrix}
++
+r(t)
+\underset{\mahjong{6z}}{\underbrace{
+\frac{d}{dt}
+\begin{bmatrix}
+\sin(\vartheta(t))\cos(\varphi(t)) \\
+\sin(\vartheta(t))\sin(\varphi(t)) \\
+\cos(\vartheta(t))
+\end{bmatrix}
+}} \\
+\end{align*}
+
+with
+\begin{align*}
+\mahjong{6z}
+&=
+\begin{bmatrix}
+\dot{\vartheta}(t)\cos(\vartheta(t))\cos(\varphi(t))-\sin(\vartheta(t))\dot{\varphi}(t)\sin(\varphi(t)) \\
+\\
+\\
 \end{bmatrix}
 \end{align*}
 
