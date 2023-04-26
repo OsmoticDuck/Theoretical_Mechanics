@@ -588,7 +588,7 @@ The position vector in spherical coordinates is
 
 the speed $\vec{v}(t)$ is the derivative of position vector $\vec{r}$ with respect to time $t$
 \begin{align*}
-\dot{\vec{r}}
+\vec{v}(t)=\dot{\vec{r}}
 &=\frac{dr}{dt}\hat{r}+r\frac{d\hat{r}}{dt} \\
 &=
 \dot{r}(t)
@@ -615,9 +615,78 @@ with
 &=
 \begin{bmatrix}
 \dot{\vartheta}(t)\cos(\vartheta(t))\cos(\varphi(t))-\sin(\vartheta(t))\dot{\varphi}(t)\sin(\varphi(t)) \\
-\\
-\\
+\dot{\vartheta}(t)\cos(\vartheta(t))\sin(\varphi(t))+\sin(\vartheta(t))\dot{\varphi}(t)\cos(\varphi(t)) \\
+-\dot{\vartheta}(t)\sin(\vartheta(t)) \\
+\end{bmatrix} \\
+\end{align*}
+
+therefore
+\begin{align}
+\vec{v}(t)=
+\dot{r}(t)
+\underset{\hat{r}(t)}{\underbrace{
+\begin{bmatrix}
+\sin(\vartheta(t))\cos(\varphi(t)) \\
+\sin(\vartheta(t))\sin(\varphi(t)) \\
+\cos(\vartheta(t))
 \end{bmatrix}
+}}
++
+r(t)
+\underset{\dot{\hat{r}}(t)}{\underbrace{
+\begin{bmatrix}
+\dot{\vartheta}(t)\cos(\vartheta(t))\cos(\varphi(t))-\sin(\vartheta(t))\dot{\varphi}(t)\sin(\varphi(t)) \\
+\dot{\vartheta}(t)\cos(\vartheta(t))\sin(\varphi(t))+\sin(\vartheta(t))\dot{\varphi}(t)\cos(\varphi(t)) \\
+-\dot{\vartheta}(t)\sin(\vartheta(t)) \\
+\end{bmatrix}
+}}
+\end{align}
+
+the acceleration $a$ is given by
+\begin{align}
+\vec{a}(t)=\dot{\vec{v}}(t)=\ddot{\vec{r}}(t)=\ddot{r}(t)\hat{r}(t)+\dot{r}(t)\dot{\hat{r}}(t)+\dot{r}(t)\dot{\hat{r}}(t)+r(t)\ddot{\hat{r}}(t)
+\end{align}
+
+with
+\begin{align*}
+\ddot{\hat{r}}(t)
+&=
+\begin{bmatrix}
+\ddot{\vartheta}C_\vartheta C_\varphi+\dot{\vartheta}(\dot{\vartheta}S_\vartheta C_\varphi-\dot{\varphi}C_\vartheta S_\varphi)
+-
+\ddot{\varphi}S_\vartheta S_\varphi-\dot{\varphi}(\dot{\vartheta}C_\vartheta S_\varphi+\dot{\varphi}S_\vartheta C_\varphi)
+\\
+\ddot{\vartheta}C_\vartheta S_\varphi+\dot{\vartheta}(-\dot{\vartheta}S_\vartheta S_\varphi+\dot{\varphi}C_\vartheta C_\varphi)
++
+\ddot{\varphi}S_\vartheta C_\varphi+\dot{\varphi}(\dot{\vartheta}C_\vartheta C_\varphi-\dot{\varphi}S_\vartheta S_\varphi)
+\\
+-\ddot{\vartheta}S_\vartheta-(\dot{\vartheta})^2C_\vartheta
+\end{bmatrix} \\
+\dot{\hat{r}}(t)
+&=
+\begin{bmatrix}
+\dot{\vartheta}(t)\cos(\vartheta(t))\cos(\varphi(t))-\sin(\vartheta(t))\dot{\varphi}(t)\sin(\varphi(t)) \\
+\dot{\vartheta}(t)\cos(\vartheta(t))\sin(\varphi(t))+\sin(\vartheta(t))\dot{\varphi}(t)\cos(\varphi(t)) \\
+-\dot{\vartheta}(t)\sin(\vartheta(t)) \\
+\end{bmatrix} \\
+\hat{r}(t)
+&=
+\begin{bmatrix}
+\sin(\vartheta(t))\cos(\varphi(t)) \\
+\sin(\vartheta(t))\sin(\varphi(t)) \\
+\cos(\vartheta(t))
+\end{bmatrix}
+\end{align*}
+
+\newpage
+
+
+
+\begin{align*}
+\mahjong{123456789s}\ 
+\mahjong{123456789p}\ 
+\mahjong{123456789m}\ 
+\mahjong{1234567z}
 \end{align*}
 
 \end{enumerate}
