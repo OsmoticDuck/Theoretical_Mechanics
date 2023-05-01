@@ -21,6 +21,7 @@
 \usepackage{amsthm}
 \usepackage{chngcntr}
 \usepackage{tikz}
+\usepackage{bbold}
 
 \usepackage{stmaryrd}
 \let\stmaryrdLightning\lightning
@@ -29,7 +30,7 @@
 
 \begin{document}
 
-\section{Homework 1 solutions}
+\section*{Homework 0 solutions}
 
 \paragraph{Question 1}
 
@@ -302,11 +303,8 @@ z
 \end{bmatrix}
 \end{align}
 
-\end{enumerate}
-
 \newpage
 
-\begin{enumerate}
 \item[(b)]
 
 The position vector $\vec{r}$ in combination of basis vectors from cartesian coordinates and factors of curvilinear coordinates is given by
@@ -451,11 +449,8 @@ z\hat{z}
 =&\rho\hat{\rho}+z\hat{z}
 \end{align*}
 
-\end{enumerate}
-
 \newpage
 
-\begin{enumerate}
 \item[(c)]
 
 The (square of) line element is given by
@@ -574,11 +569,8 @@ dz^2 \\
 &=d\rho^2+\rho^2d\varphi^2+dz^2
 \end{align*}
 
-\end{enumerate}
-
 \newpage
 
-\begin{enumerate}
 \item[(d)]
 
 The position vector in spherical coordinates is
@@ -678,15 +670,259 @@ with
 \end{bmatrix}
 \end{align*}
 
+\end{enumerate}
+
 \newpage
 
+\paragraph{Question 2}
 
+\begin{enumerate}
+
+\item[(a)]
+
+The trajectory of the mass point is given by $\vec{r}(t)$
+
+Cross product of two vectors gives a "directionalized(?) area"(a vector) with magnitude equals to area of the parallelogram that spanned by two vectors.
+
+In our case, the circular sector $A$ can be approximated to a triangle with a  infinitesimal arc element $d\vec{r}$, therefore we have
+\begin{align*}
+dA
+&=\frac{1}{2}|\vec{r}(t)\times d\vec{r}(t)|
+\end{align*}
+
+$d\vec{r}(t)$ is the path of mass point along the the orbit $\vec{r}(t)$ in time $dt$
+\begin{align*}
+dA
+&=\frac{1}{2}|\vec{r}(t)\times \vec{v}(t)dt| \\
+&=\frac{1}{2}|\vec{r}(t)\times \vec{v}(t)|dt \\
+&=\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)|dt
+\end{align*}
+
+therefore
+\begin{align*}
+f(t)=\frac{dA}{dt}
+&=\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)|
+\end{align*}
+
+\item[(b)]
+ We are going to prove that 
+\begin{align*}
+\frac{d}{dt}f(t)=0
+\end{align*}
 
 \begin{align*}
-\mahjong{123456789s}\ 
-\mahjong{123456789p}\ 
-\mahjong{123456789m}\ 
-\mahjong{1234567z}
+df(t)
+&=f(t+dt)-f(t) \\
+&=\frac{1}{2}|\vec{r}(t+dt)\times\dot{\vec{r}}(t+dt)|-\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)| \\
+&=\frac{1}{2}|(\vec{r}(t)+\dot{\vec{r}}(t)dt)\times(\dot{\vec{r}}(t)+\ddot{\vec{r}}(t)dt)|-\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)| \\
+&=\frac{1}{2}|\vec{r}(t)\times\dot{\vec{r}}(t)+\vec{r}(t)\times\ddot{\vec{r}}(t)dt+\underset{dt^2=0}{\underbrace{\dot{\vec{r}}(t)\ddot{\vec{r}}(t)dt^2}}|-\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)| \\
+&=\frac{1}{2}(|\vec{r}(t)\times\dot{\vec{r}}(t)+\underset{=0}{\underbrace{\vec{r}(t)\times\ddot{\vec{r}}(t)dt}}|-|\vec{r}(t)\times \dot{\vec{r}}(t)|) \\
+&=\frac{1}{2}(|\vec{r}(t)\times \dot{\vec{r}}(t)|-|\vec{r}(t)\times \dot{\vec{r}}(t)|) \\
+&=0 \\
+\Rightarrow\frac{d}{dt}f(t)&=0
+\end{align*}
+
+\newpage
+
+\item[(c)]
+
+It is given that
+\begin{align*}
+\vec{r}(t)=\rho\hat{\rho}+z\hat{z}
+\end{align*}
+and
+\begin{align*}
+\dot{\vec{r}}(t)=\dot{\rho}\hat{\rho}+\rho\dot{\hat{\rho}}+\dot{z}\hat{z}
+\end{align*}
+with $z(t)=0$
+\begin{align*}
+\dot{\vec{r}}(t)=\dot{\rho}\hat{\rho}+\rho\dot{\hat{\rho}}
+=
+\dot{\rho}
+\begin{pmatrix}
+C_\varphi \\
+S_\varphi \\
+0
+\end{pmatrix}
++\rho
+\begin{pmatrix}
+-\dot{\varphi}S_\varphi \\
+\dot{\varphi}C_\varphi \\
+0
+\end{pmatrix}=
+\dot{\rho}\hat{\rho}+\rho\dot{\varphi}\hat{\varphi}
+\end{align*}
+
+therefore
+\begin{align*}
+f(t)
+&=\frac{1}{2}|\vec{r}(t)\times \dot{\vec{r}}(t)| \\
+&=\frac{1}{2}|(\rho\hat{\rho}+z\hat{z})\times(\dot{\rho}\hat{\rho}+\rho\dot{\varphi}\hat{\varphi})| \\
+&=\frac{1}{2}|\rho\hat{\rho}\times\rho\dot{\varphi}\hat{\varphi}+z\hat{z}\times\dot{\rho}\hat{\rho}+z\hat{z}\times\rho\dot{\varphi}\hat{\varphi}| \\
+&=\frac{1}{2}|-\rho^2\dot{\varphi}\hat{z}+z\dot{\rho}\hat{\varphi}-z\rho\dot{\varphi}\hat{\rho}| \\
+&=\frac{1}{2}\sqrt{\rho^4\dot{\varphi}^2+z^2\dot{\rho}^2+z^2\rho^2\dot{\varphi}^2} \\
+(z(t)=0)
+&=\frac{1}{2}\rho^2\dot{\varphi}
+\end{align*}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 3}
+
+\begin{enumerate}
+
+\item[(a)]
+
+We are going to prove
+\begin{align*}
+(R_1R_2)^T(R_1R_2)=\mathbb{1}
+\end{align*}
+
+\begin{proof}
+
+\begin{align*}
+(R_1R_2)^T(R_1R_2)
+&=R_2^T R_1^T R_1 R_2 \\
+&=R_2^T \mathbb{1} R_2 \\
+&=R_2^T R_2 \\
+&=\mathbb{1}
+\end{align*}
+
+\end{proof}
+
+\item[(b)]
+
+We are going to prove
+\begin{align*}
+(R\vec{a})\cdot(R\vec{b})=\vec{a}\cdot\vec{b}
+\end{align*}
+with $R$ orthogonal
+
+\begin{proof}
+
+\begin{align*}
+(R\vec{a})\cdot(R\vec{b})
+&=(R\vec{a})^T(R\vec{b}) \\
+&=\vec{a}^T R^T R \vec{b} \\
+&=\vec{a}^T \mathbb{1} \vec{b} \\
+&\vec{a}^T \vec{b}=\vec{a}\cdot\vec{b}
+\end{align*}
+
+\end{proof}
+
+\item[(c)]
+
+We define two rotation matrices that rotate two different angles
+\begin{align*}
+R(\varphi_1)=
+\begin{pmatrix}
+C_{\varphi_1} & S_{\varphi_1} & 0 \\
+-S_{\varphi_1} & C_{\varphi_1} & 0 \\
+0 & 0 & 1
+\end{pmatrix},\ 
+R(\varphi_2)=
+\begin{pmatrix}
+C_{\varphi_2} & S_{\varphi_2} & 0 \\
+-S_{\varphi_2} & C_{\varphi_2} & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+
+therefore
+\begin{align*}
+R(\varphi_1)R(\varphi_2)
+&=
+\begin{pmatrix}
+C_{\varphi_1} & S_{\varphi_1} & 0 \\
+-S_{\varphi_1} & C_{\varphi_1} & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+C_{\varphi_2} & S_{\varphi_2} & 0 \\
+-S_{\varphi_2} & C_{\varphi_2} & 0 \\
+0 & 0 & 1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & S_{\varphi_1}C_{\varphi_2}+C_{\varphi_1}S_{\varphi_2} & 0 \\
+-S_{\varphi_1}C_{\varphi_2}-C_{\varphi_1}S_{\varphi_2} & C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & 0 \\
+0 & 0 & 1
+\end{pmatrix} \\
+(R(\varphi_1)R(\varphi_2))^T
+&=
+\begin{pmatrix}
+C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & -S_{\varphi_1}C_{\varphi_2}-C_{\varphi_1}S_{\varphi_2} & 0 \\
+S_{\varphi_1}C_{\varphi_2}+C_{\varphi_1}S_{\varphi_2} & C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & 0 \\
+0 & 0 & 1
+\end{pmatrix} \\
+(R(\varphi_1)R(\varphi_2))^T(R(\varphi_1)R(\varphi_2))&=\mathbb{1}
+\end{align*}
+
+\newpage
+
+We define two vectors
+\begin{align*}
+\vec{a}=
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+a_3
+\end{pmatrix},\ 
+\vec{b}=
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3
+\end{pmatrix}
+\end{align*}
+with dot product defined
+\begin{align*}
+\vec{a}^T\vec{b}=a_1b_1+a_2b_2+a_3b_3
+\end{align*}
+
+We apply a orthogonal transformation (rotation matrix $R(\varphi)$) to each vector
+\begin{align*}
+(R(\varphi)\vec{a})^T(R(\varphi)\vec{b})
+&=
+\left(
+\begin{pmatrix}
+C_\varphi & S_\varphi & 0 \\
+-S_\varphi & C_\varphi & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a_1 \\
+a_2 \\
+a_3
+\end{pmatrix}
+\right)
+^T
+\begin{pmatrix}
+C_\varphi & S_\varphi & 0 \\
+-S_\varphi & C_\varphi & 0 \\
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+C_\varphi a_1+S_\varphi a_2 \\
+-S_\varphi a_1+C_\varphi a_2 \\
+a_3
+\end{pmatrix}^T
+\begin{pmatrix}
+C_\varphi b_1+S_\varphi b_2 \\
+-S_\varphi b_1+C_\varphi b_2 \\
+b_3
+\end{pmatrix} \\
+&=
+(C_\varphi a_1+S_\varphi a_2)(C_\varphi b_1+S_\varphi b_2)+(-S_\varphi a_1+C_\varphi a_2)(-S_\varphi b_1+C_\varphi b_2)+a_3b_3 \\
+&=a_1b_1+a_2b_2+a_3b_3=\vec{a}^T\vec{b}
 \end{align*}
 
 \end{enumerate}
