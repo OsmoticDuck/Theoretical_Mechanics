@@ -812,6 +812,8 @@ with $R$ orthogonal
 
 \end{proof}
 
+\newpage
+
 \item[(c)]
 
 We define two rotation matrices that rotate two different angles
@@ -850,17 +852,27 @@ C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & S_{\varphi_1}C_{\varphi_
 -S_{\varphi_1}C_{\varphi_2}-C_{\varphi_1}S_{\varphi_2} & C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & 0 \\
 0 & 0 & 1
 \end{pmatrix} \\
+&=
+\begin{pmatrix}
+\cos(\varphi_1+\varphi_2) & \sin(\varphi_1+\varphi_2) & 0 \\
+-\sin(\varphi_1+\varphi_2) & \cos(\varphi_1+\varphi_2) & 0 \\
+0 & 0 & 1
+\end{pmatrix} \\
 (R(\varphi_1)R(\varphi_2))^T
 &=
 \begin{pmatrix}
-C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & -S_{\varphi_1}C_{\varphi_2}-C_{\varphi_1}S_{\varphi_2} & 0 \\
-S_{\varphi_1}C_{\varphi_2}+C_{\varphi_1}S_{\varphi_2} & C_{\varphi_1}C_{\varphi_2}-S_{\varphi_1}S_{\varphi_2} & 0 \\
+\cos(\varphi_1+\varphi_2) & -\sin(\varphi_1+\varphi_2) & 0 \\
+\sin(\varphi_1+\varphi_2) & \cos(\varphi_1+\varphi_2) & 0 \\
+0 & 0 & 1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\cos(-(\varphi_1+\varphi_2)) & \sin(-(\varphi_1+\varphi_2)) & 0 \\
+-\sin(-(\varphi_1+\varphi_2)) & \cos(-(\varphi_1+\varphi_2)) & 0 \\
 0 & 0 & 1
 \end{pmatrix} \\
 (R(\varphi_1)R(\varphi_2))^T(R(\varphi_1)R(\varphi_2))&=\mathbb{1}
 \end{align*}
-
-\newpage
 
 We define two vectors
 \begin{align*}
