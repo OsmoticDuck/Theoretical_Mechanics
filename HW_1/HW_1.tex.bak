@@ -1,0 +1,454 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{afterpage}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\usepackage{mathtools}
+%\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{mahjong}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{tikz}
+\usepackage{bbold}
+\usepackage{pdfpages}
+\usepackage{xfrac}
+
+\usepackage{stmaryrd}
+\let\stmaryrdLightning\lightning
+
+\author{Zehao Gao}
+
+\begin{document}
+
+\section*{Homework 1 solutions}
+
+\paragraph{Question 1}
+
+\begin{enumerate}
+
+\item[]
+
+An elliptic curve is given by
+\begin{align}
+\left\{
+\begin{array}{lcl}
+x=a C_t \\
+y=b S_t \\
+z=0
+\end{array}
+\right.
+\hspace{1em}
+\mbox{or}
+\hspace{1em}
+\vec{r}(t)=
+\begin{pmatrix}
+a C_t \\
+b S_t \\
+0
+\end{pmatrix}
+\end{align}
+
+we are going to find the TNB-frame of this curve.
+
+First we determine the infinitesimal arc length $ds$
+\begin{align}
+ds
+=\Big|\frac{\vec{r}(t)}{dt}\Big|dt
+=\sqrt{(-a S_t)^2+(b C_t)^2}dt
+=\sqrt{a^2+b^2}dt
+=v(t)dt
+\end{align}
+where $v(t)=\sqrt{a^2+b^2}$ is a constant.
+
+According to Frenet–Serret formulas, the tangential unit vector is given by
+\begin{align}
+\mathbf{T}
+=\frac{d\vec{r}}{ds}
+=\frac{d\vec{r}}{dt}\frac{dt}{ds}
+=
+\begin{pmatrix}
+\frac{-a S_t}{\sqrt{a^2+b^2}} \\
+\frac{b C_t}{\sqrt{a^2+b^2}} \\
+0
+\end{pmatrix}
+\end{align}
+
+and the normal unit vector is
+\begin{align}
+\mathbf{N}
+=\frac{\frac{d\mathbf{T}}{ds}}{|\frac{d\mathbf{T}}{ds}|}
+=\frac{\frac{d\mathbf{T}}{dt}\frac{dt}{ds}}{|\frac{d\mathbf{T}}{dt}\frac{dt}{ds}|}
+\end{align}
+
+where
+\begin{align}
+\frac{d\mathbf{T}}{dt}
+=
+\begin{pmatrix}
+\frac{-a C_t}{\sqrt{a^2+b^2}} \\
+\frac{-b S_t}{\sqrt{a^2+b^2}} \\
+0
+\end{pmatrix}
+\end{align}
+
+therefore
+\begin{align}
+\frac{d\mathbf{T}}{dt}\frac{dt}{ds}
+=
+\begin{pmatrix}
+\frac{-a C_t}{a^2+b^2} \\
+\frac{-b S_t}{a^2+b^2} \\
+0
+\end{pmatrix},
+\hspace{1em}
+\big|\frac{d\mathbf{T}}{dt}\frac{dt}{ds}\big|=
+\sqrt{\frac{1}{a^2+b^2}}
+\end{align}
+\begin{align}
+\mathbf{N}=
+\begin{pmatrix}
+\frac{-a C_t}{\sqrt{a^2+b^2}} \\
+\frac{-b S_t}{\sqrt{a^2+b^2}} \\
+0
+\end{pmatrix}
+\end{align}
+
+the binormal  unit vector is given by
+\begin{align}
+\mathbf{B}=\mathbf{T}\times\mathbf{N}=
+\begin{pmatrix}
+0 \\
+0 \\
+\frac{ab S_{2t}}{a^2+b^2}
+\end{pmatrix}
+\end{align}
+
+\newpage
+
+The velocity and acceleration vector is given by
+\begin{align}
+\vec{v}(t)=
+\begin{pmatrix}
+-a S_t \\
+b C_t \\
+0
+\end{pmatrix}
+,\hspace{1em}
+\vec{a}(t)=
+\begin{pmatrix}
+-a C_t \\
+-b S_t \\
+0
+\end{pmatrix}
+=a(t)\mathbf{T}+\frac{v^2(t)}{R(t)}\mathbf{N}
+\end{align}
+where $a(t)=0$ due to constant velocity
+
+Therefore
+\begin{align}
+\begin{pmatrix}
+-a C_t \\
+-b S_t \\
+0
+\end{pmatrix}
+=
+\frac{a^2+b^2}{R}
+\begin{pmatrix}
+\frac{-a C_t}{\sqrt{a^2+b^2}} \\
+\frac{-b S_t}{\sqrt{a^2+b^2}} \\
+0
+\end{pmatrix}
+\end{align}
+\begin{align}
+R=\sqrt{a^2+b^2}
+\end{align}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 2}
+
+\begin{enumerate}
+
+\item[]
+
+A helix is given by
+\begin{align}
+\vec{r}(t)=
+\begin{pmatrix}
+\rho C_{\omega t} \\
+\rho S_{\omega t} \\
+\frac{1}{2}at^2
+\end{pmatrix}
+\end{align}
+
+\begin{align}
+ds
+=\Big|\frac{\vec{r}(t)}{dt}\Big|dt
+=\sqrt{\rho^2\omega^2+a^2t^2}dt
+\end{align}
+
+\begin{align}
+\mathbf{T}
+=\frac{d\vec{r}}{ds}
+=\frac{d\vec{r}}{dt}\frac{dt}{ds}
+=
+\begin{pmatrix}
+\rho C_{\omega t} \\
+\rho S_{\omega t} \\
+\frac{1}{2}at^2
+\end{pmatrix}
+\frac{1}{\sqrt{\rho^2\omega^2+a^2t^2}}
+\end{align}
+
+\begin{align}
+\mathbf{N}
+=\frac{\frac{d\mathbf{T}}{ds}}{|\frac{d\mathbf{T}}{ds}|}
+=\frac{\frac{d\mathbf{T}}{dt}\frac{dt}{ds}}{|\frac{d\mathbf{T}}{dt}\frac{dt}{ds}|}
+\end{align}
+
+\begin{align}
+\frac{d\mathbf{T}}{dt}
+=
+\begin{pmatrix}
+\rho(\omega S_{\omega t}(\rho^2\omega^2+a^2t^2)+a^2t C_{\omega t}) \\
+\rho(\omega C_{\omega t}(\rho^2\omega^2+a^2t^2\omega)-a^2t S_{\omega t}) \\
+\frac{1}{2}a^3t^3+a\rho^2t\omega^2
+\end{pmatrix}
+\frac{1}{(\rho^2\omega^2+a^2t^2)^{\sfrac{3}{2}}}
+\end{align}
+
+\begin{align}
+\frac{d\mathbf{T}}{dt}\frac{dt}{ds}
+=
+\begin{pmatrix}
+\rho(\omega S_{\omega t}(\rho^2\omega^2+a^2t^2)+a^2t C_{\omega t}) \\
+\rho(\omega C_{\omega t}(\rho^2\omega^2+a^2t^2\omega)-a^2t S_{\omega t}) \\
+\frac{1}{2}a^3t^3+a\rho^2t\omega^2
+\end{pmatrix}
+\frac{1}{(\rho^2\omega^2+a^2t^2)^2}
+\end{align}
+
+\begin{align}
+\big|\frac{d\mathbf{T}}{dt}\frac{dt}{ds}\big|
+=
+\sqrt{\bigg(\frac{a^3t^3}{2}+a\rho^2t\omega^2\bigg)^2+\rho^2(\omega C_{\omega t}(a^2t^2\omega+\rho^2\omega^2)-a^2t S_{\omega t})^2+\rho^2(\omega S_{\omega t}(a^2t^2+\rho^2\omega^2)+a^2t C_{\omega t})^2}
+\end{align}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 3}
+
+\begin{enumerate}
+
+\item[(a)]
+
+Prove the following identity
+\begin{align}
+\varepsilon_{ijk}\varepsilon_{lmk}=\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}
+\end{align}
+
+\begin{proof}
+
+\begin{align}
+\varepsilon_{ijk}\varepsilon_{lmk}=
+\left\{
+\begin{array}{lcl}
+1 & \mbox{for} & i=l,j=m \\
+-1 & \mbox{for} & i=m,j=l
+\end{array}
+\right.
+\end{align}
+where $i\neq j\neq k$ and $l\neq m\neq k$
+
+\begin{align}
+\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}=
+\left\{
+\begin{array}{lcl}
+\delta_{ll}\delta_{mm}-\delta_{lm}\delta_{ml}=1-0=1 & \mbox{for} & i=l,j=m \\
+\delta_{ml}\delta_{lm}-\delta_{mm}\delta_{ll}=0-1=-1 & \mbox{for} & i=m,j=l
+\end{array}
+\right.
+\end{align}
+where $i\neq j$ and $l\neq m$
+
+Consider the third case, when $i=j=l=m$, we have
+\begin{align}
+\varepsilon_{ijk}\varepsilon_{lmk}=0
+\end{align}
+and
+\begin{align}
+\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl}=1-1=0
+\end{align}
+
+\end{proof}
+
+\item[(b)]
+
+Prove the following identity
+\begin{align}
+(\vec{a}\times\vec{b})_i=\varepsilon_{ijk}a_jb_k
+\end{align}
+
+\begin{proof}
+
+\begin{align}
+\vec{a}\times\vec{b}=
+\begin{pmatrix}
+a_i \\
+a_j \\
+a_k
+\end{pmatrix}
+\times
+\begin{pmatrix}
+b_i \\
+b_j \\
+b_k
+\end{pmatrix}
+=
+\begin{pmatrix}
+a_jb_k-a_kb_j \\
+a_kb_i-a_ib_k \\
+a_ib_j-a_jb_i
+\end{pmatrix}
+=
+\begin{pmatrix}
+(\vec{a}\times\vec{b})_i \\
+(\vec{a}\times\vec{b})_j \\
+(\vec{a}\times\vec{b})_k
+\end{pmatrix}
+\end{align}
+therefore
+\begin{align}
+(\vec{a}\times\vec{b})_i=a_jb_k-a_kb_j
+\end{align}
+
+\begin{align}
+\varepsilon_{ijk}=
+\left\{
+\begin{array}{lcl}
+1 & \mbox{for} & j\neq k\neq i \\
+-1 & \mbox{for} & j,k\mbox{ inverse}(\varepsilon_{ikj}) \\
+0 & \mbox{for} & (j=k)\vee (j=i) \vee (k=i)
+\end{array}
+\right.
+\end{align}
+therefore
+\begin{align*}
+\varepsilon_{ijk}a_jb_k=a_jb_k-a_kb_j
+\end{align*}
+
+\end{proof}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 4}
+
+\begin{enumerate}
+
+\item[(a)]
+
+A field is given by
+\begin{align}
+\vec{F}=\bigg(\frac{-y}{r^2},\frac{x}{r^2},0\bigg)\cdot\beta
+\end{align}
+
+To verify if the field is conservative, we apply $\nabla\times$
+\begin{align}
+\nabla\times\vec{F}=\beta\nabla\times\bigg(\frac{-y}{r^2},\frac{x}{r^2},0\bigg)=\beta\nabla\times\vec{F}'
+\end{align}
+
+since
+\begin{align}
+(\nabla\times\vec{F})_i=\epsilon_{ijk}\partial_j F_k
+\end{align}
+
+we get
+\begin{align}
+\nabla\times\vec{F}'=
+\begin{pmatrix}
+\partial_y\vec{F}'_z-\partial_z\vec{F}'_y \\
+\partial_z\vec{F}'_x-\partial_x\vec{F}'_z \\
+\partial_y\vec{F}'_x-\partial_x\vec{F}'_y
+\end{pmatrix}=
+\begin{pmatrix}
+0 \\
+0 \\
+\frac{-1}{x^2+y^2}+\frac{2y^2}{(x^2+y^2)^2}-\frac{1}{x^2+y^2}+\frac{2x^2}{(x^2+y^2)^2}
+\end{pmatrix}=0
+\end{align}
+
+the field is curl-free.
+\item[(b)]
+
+A circle path is given by
+\begin{align}
+\vec{r}=
+\begin{pmatrix}
+C_t \\
+S_t
+\end{pmatrix}
+\end{align}
+
+calculate the line integral
+\begin{align}
+\oint_C \vec{F}\cdot d\vec{l}
+\end{align}
+
+infinitesimal line element
+\begin{align}
+dl=\bigg|\frac{d\vec{r}}{dt}\bigg|dt=dt
+\end{align}
+
+therefore
+\begin{align}
+\mathbf{T}=\frac{d\vec{r}}{dt}=
+\begin{pmatrix}
+-S_t \\
+C_t
+\end{pmatrix}
+\end{align}
+\begin{align}
+d\vec{l}=dt\mathbf{T}=
+\begin{pmatrix}
+-S_tdt \\
+C_tdt
+\end{pmatrix}
+\end{align}
+
+therefore
+\begin{align}
+\oint_C \vec{F}\cdot d\vec{l}=\int_0^{2\pi}\vec{F}(r(t))\cdot\mathbf{T}dt=
+\beta\int_0^{2\pi}
+\begin{pmatrix}
+-S_t \\
+C_t
+\end{pmatrix}\cdot
+\begin{pmatrix}
+-S_t \\
+C_t
+\end{pmatrix}dt
+=
+\beta\int_0^{2\pi}dt=2\pi\beta
+\end{align}
+
+\end{enumerate}
+
+\end{document}
