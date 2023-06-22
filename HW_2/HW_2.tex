@@ -1,0 +1,234 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{afterpage}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\usepackage{mathtools}
+%\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{mahjong}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{tikz}
+\usepackage{bbold}
+\usepackage{pdfpages}
+\usepackage{xfrac}
+
+\usepackage{stmaryrd}
+\let\stmaryrdLightning\lightning
+
+\author{Zehao Gao}
+
+\begin{document}
+
+\section*{Homework 2 solutions}
+
+\paragraph{Question 1}
+
+\begin{enumerate}
+
+\item[]
+
+\begin{align}
+\left\{
+\begin{array}{lcl}
+x'=\frac{1}{\sqrt{1-\beta^2}}(x-\beta ct) \\
+ct'=\frac{1}{\sqrt{1-\beta^2}}(ct-\beta t)
+\end{array}
+\right.
+\end{align}
+
+Taylor-expansion
+\begin{align}
+x'&=x-ct\beta \\
+ct'&=x-t\beta
+\end{align}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 2}
+
+\begin{enumerate}
+
+\item[]
+
+Prove that every orthogonal transformation $A\in\mathbb{R}^2$ with $det(A)=1$ can be parameterized with $\vartheta$, so that
+\begin{align}
+A(\vartheta)=
+\begin{bmatrix}
+C_\vartheta & S_\vartheta \\
+-S_\vartheta & C_\vartheta
+\end{bmatrix}
+\end{align}
+
+\begin{proof}
+
+We have
+\begin{align}
+A=
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\end{align}
+with
+\begin{align}
+A^TA=\mathbb{1}
+\end{align}
+and 
+\begin{align}
+det(A)=1
+\end{align}
+
+so that
+\begin{align}
+\begin{bmatrix}
+a & c \\
+b & d
+\end{bmatrix}
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+=
+\begin{bmatrix}
+a^2+c^2 & ab+cd \\
+ab+cd & b^2+d^2
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+\end{align}
+
+therefore
+\begin{align}
+\left\{
+\begin{array}{lcl}
+a^2+c^2=b^2+d^2=1 \\
+ad-cb=1 \\
+ab+cd=0
+\end{array}
+\right.
+\end{align}
+
+substitute
+\begin{align}
+a=S_\vartheta\hspace{1em}
+b=S_\varphi\hspace{1em}
+c=C_\vartheta\hspace{1em}
+d=C_\varphi
+\end{align}
+
+we get
+\begin{align}
+S^2_\vartheta+C^2_\vartheta=S^2_\varphi+C^2_\varphi&=1 \\
+S_\vartheta C_\varphi-S_\varphi C_\vartheta=S_{\vartheta-\varphi}&=1 \\
+S_\vartheta S_\varphi+C_\vartheta C_\varphi=C_{\vartheta-\varphi}&=0
+\end{align}
+
+therefore
+\begin{align}
+\vartheta-\varphi=\frac{\pi}{2}+2k\pi,\hspace{1em}k\in\mathbb{Z}
+\end{align}
+\begin{align}
+S_\varphi=C_\vartheta,\hspace{1em}
+C_\varphi=-S_\vartheta
+\end{align}
+
+\begin{align*}
+A=
+\begin{bmatrix}
+S_\vartheta & C_\vartheta \\
+C_\vartheta & -S_\vartheta
+\end{bmatrix}
+\end{align*}
+
+\end{proof}
+
+\end{enumerate}
+
+\newpage
+
+\paragraph{Question 3}
+
+\begin{enumerate}
+
+\item[]
+
+\begin{align}
+\vec{F}_g=-mg\hat{z}
+\end{align}
+
+\begin{align}
+\vec{F}_R=-\alpha\vec{v}(t)
+\end{align}
+
+\begin{align}
+(\vec{F}_g+\vec{F}_R)_z=(\vec{F})_z=m\ddot{z}=-mg-\alpha\dot{z}
+\end{align}
+
+\begin{align}
+m\ddot{z}&=-mg-\alpha\dot{z} \\
+m\frac{d^2}{dt^2}z&=-mg-\alpha\frac{d}{dt}z
+\end{align}
+
+Substitute $u=\dot{z}$
+\begin{align}
+m\frac{du}{dt}&=-mg-\alpha u \\
+\frac{1}{g+\frac{\alpha}{m}u}du&=-dt \\
+\int \frac{1}{g+\frac{\alpha}{m}u}du&=-\int dt \\
+\frac{m}{\alpha}\ln(g+\frac{\alpha}{m}u)&=-t+C_0
+\end{align}
+
+with initial condition $\vec{v}(0)=\vec{v}_0$, we have $u(0)=\vec{v}_z$, therefore
+\begin{align}
+C_0=\frac{m}{\alpha}\ln(g+\frac{\alpha}{m}\vec{v}_z)
+\end{align}
+
+then we have
+\begin{align}
+\frac{m}{\alpha}\ln(g+\frac{\alpha}{m}u)&=-t+\frac{m}{\alpha}\ln(g+\frac{\alpha}{m}\vec{v}_z) \\
+(g+\frac{\alpha}{m}u)^\frac{m}{\alpha}&=e^{-t}(g+\frac{\alpha}{m}\vec{v}_z)^\frac{m}{\alpha} \\
+g+\frac{\alpha}{m}\frac{dz}{dt}&=e^{-\frac{\alpha}{m}t}(g+\frac{\alpha}{m}\vec{v}_z)
+\end{align}
+
+set $\frac{\alpha}{m}=k$
+\begin{align}
+gdt+kdz&=e^{-kt}(g+k\vec{v}_z)dt \\
+\int kdz&=\int e^{-kt}(g+k\vec{v}_z)dt-\int gdt \\
+kz&=-\frac{1}{k}e^{-kt}(g+k\vec{v}_z)-gt+C_1
+\end{align}
+
+\newpage
+
+with initial condition $z(0)=0$
+\begin{align}
+C_1=\frac{1}{k}(g+k\vec{v}_z)
+\end{align}
+
+therefore
+\begin{align}
+z
+&=\frac{1}{k^2}(g+k\vec{v}_z)-\frac{1}{k^2}e^{-kt}(g+k\vec{v}_z)-\frac{1}{k}gt \\
+&=\frac{1}{k^2}[(g+k\vec{v}_z)(1-e^{-kt})-kgt]
+\end{align}
+with $k=\frac{\alpha}{m}$
+
+\end{enumerate}
+
+\end{document}

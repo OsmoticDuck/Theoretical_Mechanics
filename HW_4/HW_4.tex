@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{afterpage}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\usepackage{mathtools}
+%\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{mahjong}
+\usepackage{amsthm}
+\usepackage{chngcntr}
+\usepackage{tikz}
+\usepackage{bbold}
+\usepackage{pdfpages}
+\usepackage{xfrac}
+
+\usepackage{stmaryrd}
+\let\stmaryrdLightning\lightning
+
+\author{Zehao Gao}
+
+\begin{document}
+
+\section*{Homework 4 solutions}
+
+\paragraph{Question 1}
+
+\begin{enumerate}
+
+\item[(a)]
+
+Conservation of momentum in \textit{lab frame}
+\begin{align}
+p_1+p_2=p_1'+p_2'=P_l
+\end{align}
+
+Conservation of energy in \textit{lab frame}
+\begin{align}
+\frac{1}{2}p_1v_1+\frac{1}{2}p_2v_2=\frac{1}{2}p_1'v_1'+\frac{1}{2}p_2'v_2'+Q=E
+\end{align}
+\begin{align}
+\frac{1}{2m_1}p_1^2+\frac{1}{2m_2}p_2^2=\frac{1}{2m_1}{p'}_1^2+\frac{1}{2m_2}{p'}_2^2+Q=E
+\end{align}
+
+Conservation of momentum in \textit{zero momentum frame}
+\begin{align}
+p_a+p_b&=p_a'+p_b'=0 \\
+p_a&=-p_b \\
+p_a'&=-p_b'
+\end{align}
+
+Conservation of energy in \textit{zero momentum frame}
+\begin{align}
+\frac{1}{2}p_av_a+\frac{1}{2}p_bv_b=\frac{1}{2}p_a'v_a'+\frac{1}{2}p_b'v_b'+Q=E
+\end{align}
+
+Position of two particles in \textit{lab frame} are
+\begin{align}
+r_1,r_2
+\end{align}
+
+Position of two particles in \textit{zero momentum frame} are
+\begin{align}
+r_a&=r_1-r_s \\
+r_b&=r_2-r_s
+\end{align}
+
+where $r_s$ is the position of center of mass. It is given by
+\begin{align}
+r_s=\frac{m_1r_1+m_2r_2}{m_1+m_2}
+\end{align}
+
+therefore we get
+\begin{align}
+r_a&=r_1-\frac{m_1r_1+m_2r_2}{m_1+m_2}=\frac{(m_1+m_2)r_1-m_1r_1-m_2r_2}{m_1+m_2}=\frac{m_2(r_1-r_2)}{m_1+m_2} \\
+r_b&=r_2-\frac{m_1r_1+m_2r_2}{m_1+m_2}=\frac{(m_1+m_2)r_2-m_1r_1-m_2r_2}{m_1+m_2}=\frac{m_1(r_2-r_1)}{m_1+m_2}
+\end{align}
+
+similarly, the velocity of center of mass is
+\begin{align}
+r_s=\frac{m_1v_1+m_2v_2}{m_1+m_2}
+\end{align}
+
+and the velocity of two particles refers to \textit{zero momentum frame} are
+\begin{align}
+v_a&=\frac{m_2(v_1-v_2)}{m_1+m_2} \\
+v_b&=\frac{m_1(v_2-v_1)}{m_1+m_2}
+\end{align}
+
+then the momentum refers to \textit{zero momentum frame} are
+\begin{align}
+p_a=m_1v_a&=\frac{m_1m_2(v_1-v_2)}{m_1+m_2} \\
+p_b=m_2v_b&=\frac{m_1m_2(v_2-v_1)}{m_1+m_2}
+\end{align}
+
+with reduced mass
+\begin{align}
+\mu=\frac{m_1+m_2}{m_1m_2}
+\end{align}
+
+we get
+\begin{align}
+p_a&=\frac{v_1-v_2}{\mu} \\
+p_b&=\frac{v_2-v_1}{\mu}
+\end{align}
+
+now we take equation (7)
+\begin{align}
+\frac{1}{2}p_av_a+\frac{1}{2}p_bv_b&=\frac{1}{2}p_a'v_a'+\frac{1}{2}p_b'v_b'+Q=E \\
+\frac{p^2_a}{m_1}+\frac{p^2_b}{m_2}&=\frac{p'^2_a}{m_1}+\frac{p'^2_b}{m_2}+2Q \\
+\frac{1}{\mu}p^2_a&=\frac{1}{\mu}p'^2_a+2Q \\
+\frac{1}{\mu}p'^2_a&=\frac{1}{\mu}p^2_a-2Q \\
+p'^2_a&=p^2_a-2\mu Q=\frac{v_1^2-2v_1v_2+v_2^2}{\mu^2}-2\mu Q
+\end{align}
+
+\end{enumerate}
+
+\end{document}
